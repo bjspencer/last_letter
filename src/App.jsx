@@ -181,18 +181,27 @@ function App() {
             }} />
           </IconButton>
         </div>
-        <div style={{ marginTop: "3rem" }}>
+        <div>
           {playing && <h3>{currentWord}</h3>}
-          <input type="text" value={userInput} onChange={handleInput} disabled={!playing} onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              validateInput();
-            }
-          }} />
-          <button onClick={validateInput} disabled={!playing} style={{
-            marginLeft: "0.5rem",
-          }}>Submit</button>
-          <h2>{message}</h2>
-          <p>{timer}</p>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+
+          }}>
+            <p style={{
+              marginRight: "0.5rem",
+            }}>{timer}</p>
+            <input type="text" value={userInput} onChange={handleInput} disabled={!playing} onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                validateInput();
+              }
+            }} />
+            <button onClick={validateInput} disabled={!playing} style={{
+              marginLeft: "0.5rem",
+            }}>Submit</button>
+          </div>
+          <p>{message}</p>
           <p><b>Score</b>: {score}</p>
           <p><b>Last score</b>: {lastScore}</p>
           <p><b>Highest score</b>: {highestScore}</p>
