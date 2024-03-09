@@ -46,6 +46,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: #fff;
 }
 
 button:not([disabled]):hover {
@@ -66,7 +67,7 @@ input:disabled {
   cursor: not-allowed;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -79,7 +80,11 @@ input:disabled {
   button {
     background-color: #f9f9f9;
   }
-}
+
+  #title {
+    color: #0000;
+  }
+} */
 
 .title-bar {
   color: #fff;

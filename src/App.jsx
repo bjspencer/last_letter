@@ -149,7 +149,7 @@ function App() {
   }, [timer, playerLosses, score]);
 
   const shareOnTwitter = () => {
-    const tweetUrl = `https://twitter.com/intent/tweet?text=My+score+is+${lastScore}+in+Last+Letter+!+Play+now!+https://lstltr.netlify.app&hashtags=lasTletteR`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=My+score+is+${lastScore}+in+Last+Letter!+Play+now!+https://lstltr.netlify.app&hashtags=lasTletteR`;
     window.open(tweetUrl, '_blank');
   };
 
@@ -171,7 +171,7 @@ function App() {
         flexDirection: "column"
       }}>
         <div className="title-bar">
-          <h1>lasT letteR</h1>
+          <h1 id="title">lasT letteR</h1>
           <IconButton aria-label="" onClick={handleModalOpen} disabled={playing}>
             <InfoIcon sx={{
               color: "white",
