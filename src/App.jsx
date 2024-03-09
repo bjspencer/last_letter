@@ -149,7 +149,7 @@ function App() {
   }, [timer, playerLosses, score]);
 
   const shareOnTwitter = () => {
-    const tweetUrl = `https://twitter.com/intent/tweet?text=My+score+is+${lastScore}+in+the+Word+Game!+Play+now!+https://lstltr.netlify.app&hashtags=WordGame`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=My+score+is+${lastScore}+in+Last+Letter+!+Play+now!+https://lstltr.netlify.app&hashtags=lasTletteR`;
     window.open(tweetUrl, '_blank');
   };
 
@@ -193,6 +193,7 @@ function App() {
           }}>Submit</button>
           <h2>{message}</h2>
           <p>{timer}</p>
+          <p><b>Score</b>: {score}</p>
           <p><b>Last score</b>: {lastScore}</p>
           <p><b>Highest score</b>: {highestScore}</p>
           {!playing && (
@@ -203,7 +204,6 @@ function App() {
               {/*   <button onClick={shareOnFacebook}>Share on Facebook</button> */}
             </>)
           }
-          {playing && <p>Score: {score}</p>}
         </div>
       </div>
       <InfoModal open={modalOpen} handleClose={handleModalClose} />
