@@ -113,7 +113,6 @@ function App() {
     }
   };
 
-
   const clearTimer = (e) => {
 
     setTimer("00:06");
@@ -150,7 +149,7 @@ function App() {
   }, [timer, playerLosses, score]);
 
   const shareOnTwitter = () => {
-    const tweetUrl = `https://twitter.com/intent/tweet?text=My+score+is+${lastScore}+in+the+Word+Game!+Play+now!+www.twitter.com&hashtags=WordGame`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=My+score+is+${lastScore}+in+the+Word+Game!+Play+now!+https://lstltr.netlify.app&hashtags=WordGame`;
     window.open(tweetUrl, '_blank');
   };
 
@@ -182,8 +181,8 @@ function App() {
             }} />
           </IconButton>
         </div>
-        <div style={{ marginTop: "10rem" }}>
-          {playing && <h1>{currentWord}</h1>}
+        <div style={{ marginTop: "3rem" }}>
+          {playing && <h3>{currentWord}</h3>}
           <input type="text" value={userInput} onChange={handleInput} disabled={!playing} onKeyDown={(e) => {
             if (e.key === 'Enter') {
               validateInput();
@@ -191,7 +190,8 @@ function App() {
           }} />
           <button onClick={validateInput} disabled={!playing} style={{
             marginLeft: "0.5rem",
-          }}>Submit</button> <h2>{message}</h2>
+          }}>Submit</button>
+          <h2>{message}</h2>
           <p>{timer}</p>
           <p><b>Last score</b>: {lastScore}</p>
           <p><b>Highest score</b>: {highestScore}</p>
@@ -199,8 +199,8 @@ function App() {
             <>
               {playerLosses < 1 && <button onClick={handlePlayButtonClicked}>Play!</button>}
               {playerLosses > 0 && <button onClick={handlePlayButtonClicked}>Play Again!</button>}
-              {/* <button onClick={shareOnTwitter}>Share on Twitter</button>
-              <button onClick={shareOnFacebook}>Share on Facebook</button> */}
+              <button onClick={shareOnTwitter}>Share on Twitter</button>
+              {/*   <button onClick={shareOnFacebook}>Share on Facebook</button> */}
             </>)
           }
           {playing && <p>Score: {score}</p>}
