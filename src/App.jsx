@@ -63,7 +63,7 @@ function App() {
     if (userInput.length === 0) {
       setMessage("Please enter a word.");
     } else if (
-      userInput.charAt(0) !== currentWord.charAt(currentWord.length - 1)
+      userInput.toLocaleLowerCase().charAt(0) !== currentWord.charAt(currentWord.length - 1)
     ) {
       setMessage(
         `Word should start with '${currentWord.charAt(
@@ -71,14 +71,14 @@ function App() {
         )}'.`
       );
       setUserInput("");
-    } else if (!wordList.includes(userInput)) {
+    } else if (!wordList.includes(userInput.toLocaleLowerCase())) {
       setMessage("Word is not in the list.");
       setUserInput("");
-    } else if (playedWords.includes(userInput)) {
+    } else if (playedWords.includes(userInput.toLocaleLowerCase())) {
       setMessage("Word played already.")
       setUserInput("");
     }
-    else {
+    else if (wordList.includes(userInput.toLocaleLowerCase())) {
       setMessage("Correct!");
       setUserInput("");
       clearTimer(getDeadTime());
