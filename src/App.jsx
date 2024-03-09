@@ -78,7 +78,7 @@ function App() {
       setMessage("Word played already.")
       setUserInput("");
     }
-    else if (wordList.includes(userInput.toLocaleLowerCase())) {
+    else if (wordList.includes(userInput.toLocaleLowerCase()) && !playedWords.includes(userInput.toLocaleLowerCase())) {
       setMessage("Correct!");
       setUserInput("");
       clearTimer(getDeadTime());
@@ -149,7 +149,7 @@ function App() {
   }, [timer, playerLosses, score]);
 
   const shareOnTwitter = () => {
-    const tweetUrl = `https://twitter.com/intent/tweet?text=My+score+is+${lastScore}+in+Last+Letter!+Play+now!+https://lstltr.netlify.app&hashtags=lasTletteR`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=My+score+is+${lastScore}+in+Last+Letter!+Play+now!+https://lastl.site&hashtags=lasTletteR`;
     window.open(tweetUrl, '_blank');
   };
 
@@ -181,6 +181,7 @@ function App() {
             }} />
           </IconButton>
         </div>
+        <p>Guess a word that starts with the <b>last letter</b> of:</p>
         <div>
           {playing && <h3>{currentWord}</h3>}
           <div style={{
